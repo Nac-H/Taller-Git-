@@ -11,10 +11,28 @@ const frases = [
     '¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter',
 ];
 
-const boton = document.getElementById('boton');
+const boton = document.getElementById('btn-frase');
 
 boton.addEventListener('click', () => {
     const indiceAleatorio = Math.floor(Math.random() * frases.length);
     const fraseSeleccionada = frases[indiceAleatorio];
-    document.getElementById('frase').textContent = fraseSeleccionada;
+    document.getElementById('contenedor-frases').textContent = fraseSeleccionada;
+
+    const colorAleatorio = '#' + Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.backgroundColor = colorAleatorio;
+
 });
+
+const boton2 = document.getElementById('agregar-frase');
+
+boton2.addEventListener('click', () => {
+    if (document.getElementById('input-frase').value !== ""){
+        frases.push(document.getElementById('input-frase').value); 
+        alert("Frase agregada correctamente");
+    }
+    else{
+        alert("Por favor ingresa una frase");
+    }
+});
+
+
